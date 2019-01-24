@@ -3,6 +3,11 @@ package jp.takeshi.parameterized;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * Value provider class for testing 
+ * ParameterizedMethodSourceTest.java
+ *
+ */
 public class ValueProvider {
     
     public static IntStream getInts() {

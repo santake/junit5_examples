@@ -1,4 +1,4 @@
-package jp.takeshi;
+package jp.takeshi.basic;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -22,6 +22,8 @@ import org.junit.jupiter.api.condition.OS;
 import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assumptions.*;
+
+import jp.takeshi.Person;
 
 /**
  * NOTE: assertThat() is not available on JUnit5. You should use Hamcrest

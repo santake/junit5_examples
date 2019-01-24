@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ParameterizedCsvSourceTest {
 
-    
     @ParameterizedTest
     @CsvSource({ 
 	"foo,1", 

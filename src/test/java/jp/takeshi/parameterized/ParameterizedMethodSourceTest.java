@@ -7,6 +7,10 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test using Method provider or Class named 'ValueProvider'
+ * 
+ */
 class ParameterizedMethodSourceTest {
 
     /*
@@ -22,7 +26,7 @@ class ParameterizedMethodSourceTest {
      * invoke method outside of this class (Calling ValueProvider#getInts())
      */
     @ParameterizedTest
-    @MethodSource("jp.takeshi.pm.ValueProvider#getInts")
+    @MethodSource("jp.takeshi.parameterized.ValueProvider#getInts")
     void test02MethodSource(int val) {
 	assertNotEquals(9, val);
     }
@@ -31,7 +35,7 @@ class ParameterizedMethodSourceTest {
      * invoke method outside of this class (Calling ValueProvider#getStrings())
      */
     @ParameterizedTest
-    @MethodSource("jp.takeshi.pm.ValueProvider#getStrings")
+    @MethodSource("jp.takeshi.parameterized.ValueProvider#getStrings")
     void test03MethodSoure(String val) {
 	assertTrue(val.length()< 4);
     }
