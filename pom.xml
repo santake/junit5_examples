@@ -13,6 +13,9 @@
     <!-- Version declaration: -->
     <version.junit5.jupiter>5.3.2</version.junit5.jupiter>
     <version.junit5.platform>1.3.2</version.junit5.platform>
+    <!-- 
+    <version.openclover>4.3.1</version.openclover>
+     -->
   </properties>
 
 
@@ -59,12 +62,13 @@
       <version>2.1</version>
       <scope>test</scope>
     </dependency>
+    
 
   </dependencies>
 
 
   <build>
-    <defaultGoal>clean test antrun:run@html</defaultGoal>
+    <defaultGoal>clean test</defaultGoal>
 
     <plugins>
       <plugin>
@@ -84,7 +88,6 @@
           <!-- (for antrun-plugin) DO NOT STOP test goal even if it fails; 
             this is for HTML report -->
           <testFailureIgnore>true</testFailureIgnore>
-
           <properties>
             <configurationParameters>
               junit.jupiter.extensions.autodetection.enabled = true
@@ -99,7 +102,6 @@
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.8</version>
         <dependencies>
-          <!-- require this jar to run junitreport: -->
           <dependency>
             <groupId>org.apache.ant</groupId>
             <artifactId>ant-junit</artifactId>
@@ -111,17 +113,10 @@
             <id>html</id>
             <phase>test</phase>
             <configuration>
-              <!-- Ant target: -->
               <target>
-                <junitreport
-                  todir="${project.build.directory}/surefire-reports">
-                  <fileset
-                    dir="${project.build.directory}/surefire-reports">
-                    <include name="TEST-*.xml" />
-                  </fileset>
-                  <report format="frames"
-                    todir="${project.build.directory}/junit-html-reports" />
-                </junitreport>
+                <ant antfile="build.xml" target="junit_report">
+                  <property name="target.dir" value="${project.build.directory}"/>
+                </ant>
               </target>
             </configuration>
             <goals>
@@ -130,9 +125,15 @@
           </execution>
         </executions>
       </plugin>
-
+ 
+<!-- does not work 
+      <plugin>
+        <groupId>org.openclover</groupId>
+        <artifactId>clover-maven-plugin</artifactId>
+        <version>${version.openclover}</version>     
+      </plugin>
+ -->
     </plugins>
   </build>
-
 
 </project>

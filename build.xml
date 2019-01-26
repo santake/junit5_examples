@@ -1,0 +1,12 @@
+<project name="reporting tool" basedir="." default="junit_report">
+
+	<target name="junit_report">
+		<junitreport todir="${target.dir}/surefire-reports">
+			<fileset dir="${target.dir}/surefire-reports">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${target.dir}/junit-html-reports" />
+		</junitreport>
+	</target>
+
+</project>
