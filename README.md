@@ -8,6 +8,7 @@ Learning JUnit5 annotations methods etc.
 - Maven 3.5
 - Apache Ant 1.10.x
 
+
 ## How to
 run as follows:
 
@@ -15,16 +16,23 @@ run as follows:
 $ mvn clean test
 ```
 
-To invoke reporting explicitly:
-```sh
+The 'antrun' plug-in will be invoked during the 'test' phase, 
+which kicks the build.xml that has the Ant's 'junitreport'.
+
+
+Or, to invoke reporting explicitly, do the following:
+
+```bash
 $ mvn clean test antrun:run@html
 ```
 
 
 
-## To generate JUnit HTML Reports
+## NOTE: how to generate JUnit HTML Reports
 
 It is much simpler to use Apache Ant Junit report task (junitreport)
 than to use Maven surefire-report, so I used Ant task inside of it.
 
-@see pom.xml plugin part and build.xml file. 
+@see pom.xml plug-in part and build.xml file. 
+
+

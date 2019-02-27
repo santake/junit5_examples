@@ -18,7 +18,7 @@ import jp.takeshi.Person;
  * 
  *
  */
-@DisplayName("Nested tests")
+@DisplayName("Person Nested tests")
 class PersonNestedTest {
     @BeforeAll
     static void initAll() {
