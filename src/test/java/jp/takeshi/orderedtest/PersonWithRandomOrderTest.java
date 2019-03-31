@@ -1,7 +1,6 @@
-package jp.takeshi.basic;
+package jp.takeshi.orderedtest;
 
 import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
@@ -15,30 +14,26 @@ import jp.takeshi.Person;
  * @author santake
  *
  */
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class PersonWithAnnotationOrderTest {
+@TestMethodOrder(MethodOrderer.Random.class)
+class PersonWithRandomOrderTest {
 
-    
-    @Order(1)
     @Test
     void testZZZZ() {
-	System.out.println("Test #1");
+	System.out.println("Test #Z");
 	Person p = new Person();
 	assertNotNull(p);
     }
 
-    @Order(3)
     @Test
     void testYYYYYY() {
-	System.out.println("Test #3");
+	System.out.println("Test #Y");
 	Person p = new Person();
 	assertNotNull(p);
     }
 
-    @Order(2)
     @Test
     void testXXXXX() {
-	System.out.println("Test #2");
+	System.out.println("Test #X");
 	Person p = new Person();
 	assertNotNull(p);
     }
