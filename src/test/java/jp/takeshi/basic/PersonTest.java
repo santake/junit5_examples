@@ -116,18 +116,18 @@ class PersonTest {
     @Test
     @DisplayName("Test timeout = this will wait for the sleep.")
     void testTimeoutExceeded() {
-        assertTimeout(Duration.ofMillis(10), () -> {
+        assertTimeout(Duration.ofMillis(1100), () -> {
             // JUnit will wait for the below process finishes.
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         });
     }
 
     @Test
     @DisplayName("Test timeout = this will IMMEDIATELY abort if the expected time comes")
     void testTimeoutExceededWithPreemptiveTermination() {
-        assertTimeoutPreemptively(Duration.ofMillis(10), () -> {
+        assertTimeoutPreemptively(Duration.ofMillis(1100), () -> {
             // JUnit will abort right after the above duration comes
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         });
     }
 
